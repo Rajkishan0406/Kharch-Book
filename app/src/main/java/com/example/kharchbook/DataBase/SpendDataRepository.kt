@@ -17,4 +17,8 @@ class SpendDataRepository(private val spenddataDao : SpendDataDao) {
         spenddataDao.addSpendData(spend)
     }
 
+    suspend fun deletedata(id : Int){
+        spenddataDao.deletedata(id)
+    }
+
 }

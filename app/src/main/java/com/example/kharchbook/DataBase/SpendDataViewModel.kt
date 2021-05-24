@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 //The Viewmodel's role is to provide data to UI and survive configuration chcnges.
@@ -23,6 +24,12 @@ class SpendDataViewModel(application: Application) : AndroidViewModel(applicatio
      fun addSpendData(spenddata : SpendData){
         viewModelScope.launch {
             repository.addSpendData(spenddata)
+        }
+    }
+
+    fun deletedata(id : Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deletedata(id)
         }
     }
 

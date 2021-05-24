@@ -1,14 +1,20 @@
 package com.example.kharchbook
 
+import android.content.Context
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kharchbook.DataBase.SpendData
+import com.example.kharchbook.DataBase.SpendDataViewModel
+import kotlin.coroutines.coroutineContext
 
 class SpendAdapter : RecyclerView.Adapter<SpendAdapter.MyViewHolder>() {
 
@@ -35,7 +41,7 @@ class SpendAdapter : RecyclerView.Adapter<SpendAdapter.MyViewHolder>() {
         holder.c.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var activity = v!!.context as AppCompatActivity
-                val IDF = SpendDataDetailsFragment()
+                val IDF = SpendDataDetailsFragment(currentItem)
                 var bun: Bundle
                 bun = Bundle()
                 bun.putString("id",currentItem.id.toString())
@@ -49,6 +55,9 @@ class SpendAdapter : RecyclerView.Adapter<SpendAdapter.MyViewHolder>() {
                     .addToBackStack(null).commit()
             }
         })
+
+
+
 
     }
 
