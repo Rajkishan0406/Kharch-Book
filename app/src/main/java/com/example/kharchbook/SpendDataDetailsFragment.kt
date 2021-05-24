@@ -24,6 +24,7 @@ class SpendDataDetailsFragment(ci: SpendData) : Fragment() {
     lateinit var Mode : TextView
     lateinit var bun : Bundle
     lateinit var del : CardView
+    lateinit var edit : CardView
     lateinit var mSpendDataViewModel: SpendDataViewModel
 
 override fun onStart() {
@@ -54,6 +55,7 @@ override fun onStart() {
         Mode = view.findViewById(R.id.modee)
         Date = view.findViewById(R.id.date)
         del = view.findViewById(R.id.delete)
+        edit = view.findViewById(R.id.edit)
         var ID = id?.toInt()
 
         del.setOnClickListener(View.OnClickListener {
@@ -74,6 +76,19 @@ override fun onStart() {
         })
 
 
+        edit.setOnClickListener(View.OnClickListener {
+            bun = Bundle()
+            bun.putString("id",id.toString())
+            bun.putString("from", from)
+            bun.putString("amount", amount.toString())
+            bun.putString("message", msg)
+            bun.putString("mode", mode)
+            bun.putString("date", date)
+            var pp = EditSpendDataFragment()
+            pp.arguments = bun
+            setFragment2(pp)
+        })
+
         Date.setText(date)
         From.setText(from)
         Amount.setText(amount)
@@ -87,6 +102,16 @@ override fun onStart() {
     }
 
     private fun setFragment(forgotFragment: SpendFragment) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.main_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.addToBackStack(null).commit()
+        }
+    }
+
+    private fun setFragment2(forgotFragment: EditSpendDataFragment) {
         var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
         if (ft != null) {
             ft.replace(R.id.main_frame, forgotFragment)
