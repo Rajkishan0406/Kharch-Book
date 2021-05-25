@@ -20,5 +20,13 @@ interface SpendDataDao {
     @Query("DELETE FROM MoneySpend WHERE id = :Id")
     suspend fun deletedata(Id: Int)
 
+   // @Query("SELECT * FROM MoneySpend WHERE `from` = :ff ORDER BY id ASC")
+   // suspend fun readByName(ff : String)
+
+    // @Query("SELECT * FROM MoneySpend WHERE amount > :Am ORDER BY id ASC")
+    // suspend fun readByName(Am : Int)
+
+    // @Query("SELECT * FROM MoneySpend WHERE (payment_gateway = :x || payment_gateway = :y)ORDER BY id ASC")
+    // suspend fun readByReceivedOrSpend(x : String , y : String)
 
 }
