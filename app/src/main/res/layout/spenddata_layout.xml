@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/ic_baseline_arrow_drop_down_24"/>
 
             <ImageView
@@ -62,8 +62,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:visibility="invisible"
                 android:src="@drawable/ic_baseline_arrow_drop_up_24"/>
 
             <TextView
