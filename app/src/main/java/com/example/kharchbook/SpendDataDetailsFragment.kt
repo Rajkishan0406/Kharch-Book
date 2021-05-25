@@ -1,6 +1,7 @@
 package com.example.kharchbook
 
 import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,6 +24,8 @@ class SpendDataDetailsFragment(ci: SpendData) : Fragment() {
     lateinit var Message : TextView
     lateinit var Mode : TextView
     lateinit var bun : Bundle
+    lateinit var status : TextView
+    lateinit var card : CardView
     lateinit var del : CardView
     lateinit var mSpendDataViewModel: SpendDataViewModel
 
@@ -48,11 +51,14 @@ override fun onStart() {
         mSpendDataViewModel = ViewModelProvider(this).get(SpendDataViewModel::class.java)
 
 
+
         From = view.findViewById(R.id.name)
         Amount = view.findViewById(R.id.money)
         Message = view.findViewById(R.id.message)
         Mode = view.findViewById(R.id.modee)
         Date = view.findViewById(R.id.date)
+        status = view.findViewById(R.id.modeex)
+        card = view.findViewById(R.id.stat)
         del = view.findViewById(R.id.delete)
         var ID = id?.toInt()
 
@@ -79,8 +85,18 @@ override fun onStart() {
         From.setText(from)
         Amount.setText(amount)
         Message.setText(msg)
-        if(mode.equals("offline"))
-            Mode.setText("Offline")
+        if (mode != null) {
+            if(mode.substring(0,1).equals("2")) {
+                Mode.setText("Offline")
+            }
+        }
+        if (mode != null) {
+            if(mode.substring(2,3).equals("2")) {
+                card.setCardBackgroundColor(Color.RED)
+                status.setText("Spend")
+                Amount.setTextColor(Color.RED)
+            }
+        }
 
 
 

@@ -1,6 +1,7 @@
 package com.example.kharchbook
 
 import android.content.Context
+import android.graphics.Color
 import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -37,7 +38,10 @@ class SpendAdapter : RecyclerView.Adapter<SpendAdapter.MyViewHolder>() {
         holder.amount.text = currentItem.amount.toString()
         holder.to.text = currentItem.from
         holder.date.text = currentItem.date
-
+        var status = currentItem.payment_gateway.toString().substring(2,3)
+        if(status.equals("1")) {
+            holder.amount.setTextColor(Color.GREEN)
+        }
 
 
 

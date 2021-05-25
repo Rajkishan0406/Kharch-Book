@@ -92,13 +92,13 @@ class AddSpendDataFragment : Fragment() {
         var Through = ""
         var status = "";
         if(on == 1)
-             Through = "Online"
+             Through = "1"
         else
-            Through = "Offline"
-        if(on == 1)
-            status = "Spend"
+            Through = "2"
+        if(On == 1)
+            Through = Through + " 2"
         else
-            status = "Received"
+            Through = Through + " 1"
 
         //Create SpendData Object
         val spend = SpendData(0,Amount,Date,From,Through,M)
