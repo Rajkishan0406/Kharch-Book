@@ -21,4 +21,6 @@ class SpendDataRepository(private val spenddataDao : SpendDataDao) {
         spenddataDao.deletedata(id)
     }
 
+
+
 }

@@ -1,8 +1,10 @@
 package com.example.kharchbook.DataBase
 
-import android.os.FileObserver.DELETE
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 //Contains method for accessing the SpendData database
 
@@ -10,13 +12,13 @@ import androidx.room.*
 interface SpendDataDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addSpendData(spendsata : SpendData)
+    suspend fun addSpendData(spendsata: SpendData)
 
     @Query("SELECT * FROM MoneySpend ORDER BY id ASC")
     fun readAllSpendData() : LiveData<List<SpendData>>
 
     @Query("DELETE FROM MoneySpend WHERE id = :Id")
-    suspend fun deletedata (Id : Int)
+    suspend fun deletedata(Id: Int)
 
 
 }
