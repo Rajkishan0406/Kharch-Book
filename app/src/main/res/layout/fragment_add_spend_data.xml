@@ -107,7 +107,6 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_marginBottom="2dp"
-                app:cardBackgroundColor="@color/teal_700"
                 app:cardCornerRadius="10dp">
 
                 <RelativeLayout
@@ -120,7 +119,7 @@
                         android:layout_centerVertical="true"
                         android:text="Online"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/red" />
 
                 </RelativeLayout>
 
@@ -136,7 +135,6 @@
                 android:layout_marginBottom="2dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                app:cardBackgroundColor="@color/teal_700"
                 app:cardCornerRadius="10dp">
 
                 <RelativeLayout
@@ -149,7 +147,7 @@
                         android:layout_centerVertical="true"
                         android:text="Offline"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/red" />
 
                 </RelativeLayout>
 
@@ -172,8 +170,8 @@
         app:boxCornerRadiusTopStart="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="58dp"
-        app:layout_constraintTop_toBottomOf="@+id/mode">
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/modex">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/send_date"
@@ -181,6 +179,90 @@
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/modex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mode"
+        android:layout_marginTop="44dp"
+        android:textSize="15dp"
+        android:text="Money Status"
+        android:textAlignment="center"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/modex">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/spend_card"
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layout_marginBottom="2dp"
+                app:cardCornerRadius="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Spend"
+                        android:textAlignment="center"
+                        android:textColor="@color/red" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/received_card"
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                app:cardCornerRadius="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Received"
+                        android:textAlignment="center"
+                        android:textColor="@color/red" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
     <androidx.cardview.widget.CardView

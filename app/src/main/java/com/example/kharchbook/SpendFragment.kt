@@ -19,7 +19,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class SpendFragment : Fragment() {
 
     private lateinit var mSpendDataViewModel: SpendDataViewModel
-    var run = 0 as Int
     lateinit var fb : FloatingActionButton
     lateinit var recyclerView: RecyclerView
 

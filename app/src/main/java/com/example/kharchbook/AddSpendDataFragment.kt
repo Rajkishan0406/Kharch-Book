@@ -1,5 +1,6 @@
 package com.example.kharchbook
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,7 +24,10 @@ class AddSpendDataFragment : Fragment() {
     lateinit var date : TextView
     lateinit var online : CardView
     lateinit var offline : CardView
+    lateinit var spend : CardView
+    lateinit var received : CardView
     var on = 0 as Int
+    private var On = 0 as Int
     lateinit var mSpendDataViewModel : SpendDataViewModel
 
 
@@ -39,19 +43,37 @@ class AddSpendDataFragment : Fragment() {
         date = view.findViewById(R.id.send_date)
         online = view.findViewById(R.id.online_card)
         offline = view.findViewById(R.id.offline_card)
+        spend = view.findViewById(R.id.spend_card)
+        received = view.findViewById(R.id.received_card)
+
+        spend.setOnClickListener(View.OnClickListener {
+            On = 1
+            spend.setCardBackgroundColor(Color.LTGRAY)
+            received.setCardBackgroundColor(Color.WHITE)
+        })
+
+        received.setOnClickListener(View.OnClickListener {
+            On = -1
+            received.setCardBackgroundColor(Color.LTGRAY)
+            spend.setCardBackgroundColor(Color.WHITE)
+        })
 
         online.setOnClickListener(View.OnClickListener {
             on = 1;
+            online.setCardBackgroundColor(Color.LTGRAY)
+            offline.setCardBackgroundColor(Color.WHITE)
         })
 
         offline.setOnClickListener(View.OnClickListener {
             on = -1;
+            offline.setCardBackgroundColor(Color.LTGRAY)
+            online.setCardBackgroundColor(Color.WHITE)
         })
 
         mSpendDataViewModel = ViewModelProvider(this).get(SpendDataViewModel::class.java)
 
         add.setOnClickListener(View.OnClickListener {
-            if(on == 0 || date.text.toString().length == 0 || msg.text.toString().length == 0 || to.text.toString().length == 0 || amount.text.toString().length == 0){
+            if(On == 0 || on == 0 || date.text.toString().length == 0 || msg.text.toString().length == 0 || to.text.toString().length == 0 || amount.text.toString().length == 0){
                 Toast.makeText(activity,"Please fill all details",Toast.LENGTH_SHORT).show()
             }
             else{
@@ -68,10 +90,15 @@ class AddSpendDataFragment : Fragment() {
         val From = to.text.toString()
         val M = msg.text.toString()
         var Through = ""
+        var status = "";
         if(on == 1)
              Through = "Online"
         else
             Through = "Offline"
+        if(on == 1)
+            status = "Spend"
+        else
+            status = "Received"
 
         //Create SpendData Object
         val spend = SpendData(0,Amount,Date,From,Through,M)

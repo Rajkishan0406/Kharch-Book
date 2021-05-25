@@ -38,6 +38,9 @@ class SpendAdapter : RecyclerView.Adapter<SpendAdapter.MyViewHolder>() {
         holder.to.text = currentItem.from
         holder.date.text = currentItem.date
 
+
+
+
         holder.c.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var activity = v!!.context as AppCompatActivity

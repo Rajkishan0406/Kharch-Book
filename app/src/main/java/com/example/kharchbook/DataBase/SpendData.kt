@@ -12,5 +12,6 @@ class SpendData (
     val date : String,
     val from : String,
     val payment_gateway : String,
-    val message : String
+    val message : String,
+   // val status : String
 )
