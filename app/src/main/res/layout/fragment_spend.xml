@@ -1,22 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SpendFragment">
 
+ <androidx.cardview.widget.CardView
+     android:id="@+id/main_card"
+     android:layout_width="match_parent"
+     android:layout_height="38dp">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="match_parent"
+       android:layout_alignParentRight="true"
+       android:layout_marginRight="20dp"
+       android:src="@drawable/ic_baseline_person_24"/>
+
+   <TextView
+       android:id="@+id/headine"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="@color/light_red"
+       android:text="Kharch "
+       android:textSize="22dp"
+       android:layout_marginLeft="10dp"
+       android:layout_centerVertical="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/green"
+        android:textSize="22dp"
+        android:layout_toRightOf="@+id/headine"
+        android:layout_centerVertical="true"
+        android:text="Book"/>
+
+  </RelativeLayout>
+
+ </androidx.cardview.widget.CardView>
+
  <ImageView
+     android:id="@+id/imageView"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
      android:src="@drawable/gradient1"
-     android:layout_marginRight="-2000dp"
-     android:layout_marginLeft="-2000dp"/>
+     android:layout_marginRight="-1000dp"
+     android:layout_marginLeft="-1000dp"/>
 
  <androidx.recyclerview.widget.RecyclerView
      android:id="@+id/spend_recyclerview"
      android:layout_width="match_parent"
-     android:layout_height="match_parent"/>
+     android:layout_below="@+id/main_card"
+     android:layout_height="match_parent" />
 
 
  <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -39,4 +79,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
