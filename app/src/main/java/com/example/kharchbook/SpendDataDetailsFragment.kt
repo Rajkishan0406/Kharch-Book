@@ -3,6 +3,7 @@ package com.example.kharchbook
 import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -70,6 +71,27 @@ override fun onStart() {
                 if (ID != null) {
                     mSpendDataViewModel.deletedata(ID)
                     Toast.makeText(activity,"Data deleted",Toast.LENGTH_SHORT).show()
+                    var pref = PreferenceManager.getDefaultSharedPreferences(activity)
+                    pref.apply {
+                        val editor = pref.edit()
+                        var before = pref.getString("Balance", "0")
+                        if (mode != null) {
+                            if (mode.substring(2,3).equals("2")) {
+                                val z = 0 as Int
+                                val zo = 0 as Int
+                                var money = (before?.toInt() ?: z) + (amount?.toInt() ?: zo)
+                                var Money = money.toString()
+                                editor.putString("Balance", Money)
+                            } else {
+                                val z = 0 as Int
+                                val zo = 0 as Int
+                                var money =  (before?.toInt() ?: z) - (amount?.toInt() ?: zo)
+                                var Money = money.toString()
+                                editor.putString("Balance", Money)
+                            }
+                        }
+                        editor.apply()
+                    }
                     setFragment(SpendFragment())
                 }
             }
