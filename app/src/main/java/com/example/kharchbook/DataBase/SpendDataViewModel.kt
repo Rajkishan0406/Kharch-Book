@@ -14,11 +14,11 @@ class SpendDataViewModel(application: Application) : AndroidViewModel(applicatio
     val readAllSpendData : LiveData<List<SpendData>>
     private val repository : SpendDataRepository
 
+
     init{
         val spenddao = SpendDatabase.getSpendDataBase(application).spenddatadao()
         repository = SpendDataRepository(spenddao)
         readAllSpendData = repository.readAllSpendData
-
     }
 
      fun addSpendData(spenddata : SpendData){
@@ -33,6 +33,23 @@ class SpendDataViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+   /* suspend fun readByName(ff : String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.readByName(ff)
+        }
+    }
 
+    suspend fun readByName(Am : Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.readByAmount(Am)
+        }
+    }
+
+    suspend fun readByReceivedOrSpend(x : String , y : String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.readByReceivedOrSpend(x, y)
+        }
+    }
+*/
 
 }

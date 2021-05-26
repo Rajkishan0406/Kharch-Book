@@ -21,6 +21,16 @@ class SpendDataRepository(private val spenddataDao : SpendDataDao) {
         spenddataDao.deletedata(id)
     }
 
+  /*  suspend fun readByName(ff : String){
+        spenddataDao.readByName(ff)
+    }
 
+    suspend fun readByAmount(Am : Int){
+        spenddataDao.readByAmount(Am)
+    }
 
+    suspend fun readByReceivedOrSpend(x : String , y : String){
+        spenddataDao.readByReceivedOrSpend(x,y)
+    }
+*/
 }

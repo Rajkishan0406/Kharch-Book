@@ -1,14 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/Money_Text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:textAlignment="center"
+        android:textSize="28dp"
+        android:text="Balance"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-light"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/My_money"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Money_Text"
+        android:layout_marginTop="11dp"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="24000"/>
+
+    <ImageView
+        android:id="@+id/gain"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_below="@+id/Money_Text"
+        android:layout_toLeftOf="@id/My_money"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_baseline_arrow_drop_up_24"/>
+
+    <ImageView
+        android:id="@+id/loss"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_below="@+id/Money_Text"
+        android:layout_toLeftOf="@id/My_money"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_baseline_arrow_drop_down_24"/>
+
+    <TextView
+        android:id="@+id/filter_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp"
+        android:drawableLeft="@drawable/ic_baseline_filter_list_24"
+        android:textColor="@color/purple_500"
+        android:text="    FILTER DATA"/>
+
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_marginLeft="8dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/filter_text"
+        android:background="@color/light_red"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/By_Name"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="25dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/filter_text"
+        android:layout_marginTop="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:text="Name"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/By_Amount"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="25dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/By_Name"
+        android:layout_marginTop="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:text="Amount"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/By_Received"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="25dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/By_Amount"
+        android:layout_marginTop="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:text="Received Money"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/By_Spend"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="25dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/By_Received"
+        android:layout_marginTop="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:text="Spend Money"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

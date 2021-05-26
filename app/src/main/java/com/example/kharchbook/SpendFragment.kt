@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
@@ -21,6 +22,7 @@ class SpendFragment : Fragment() {
     private lateinit var mSpendDataViewModel: SpendDataViewModel
     lateinit var fb : FloatingActionButton
     lateinit var recyclerView: RecyclerView
+    lateinit var pro : ImageView
 
     override fun onStart() {
         super.onStart()
@@ -34,6 +36,11 @@ class SpendFragment : Fragment() {
         var view = inflater.inflate(R.layout.fragment_spend, container, false)
 
         fb = view.findViewById(R.id.fab)
+        pro = view.findViewById(R.id.profile)
+
+        pro.setOnClickListener(View.OnClickListener {
+            setFragment2(ProfileFragment())
+        })
 
         fb.setOnClickListener(View.OnClickListener {
             setFragment(AddSpendDataFragment())
@@ -67,4 +74,15 @@ class SpendFragment : Fragment() {
             ft.addToBackStack(null).commit()
         }
     }
+
+    private fun setFragment2(forgotFragment: ProfileFragment) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.main_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.addToBackStack(null).commit()
+        }
+    }
+
 }
