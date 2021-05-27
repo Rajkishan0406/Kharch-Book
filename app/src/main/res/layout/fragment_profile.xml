@@ -70,10 +70,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/By_Name"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="36dp"
         android:layout_marginLeft="25dp"
         app:cardCornerRadius="8dp"
         android:layout_marginRight="25dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_below="@id/filter_text"
         android:layout_marginTop="8dp">
 
@@ -95,9 +97,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/By_Amount"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="36dp"
         android:layout_marginLeft="25dp"
         app:cardCornerRadius="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_marginRight="25dp"
         android:layout_below="@id/By_Name"
         android:layout_marginTop="8dp">
@@ -120,8 +124,10 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/By_Received"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="36dp"
         android:layout_marginLeft="25dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         app:cardCornerRadius="8dp"
         android:layout_marginRight="25dp"
         android:layout_below="@id/By_Amount"
@@ -145,9 +151,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/By_Spend"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="36dp"
         android:layout_marginLeft="25dp"
         app:cardCornerRadius="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_marginRight="25dp"
         android:layout_below="@id/By_Received"
         android:layout_marginTop="8dp">

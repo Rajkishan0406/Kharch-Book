@@ -45,6 +45,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Finger Print
+    implementation "androidx.biometric:biometric:1.2.0-alpha03"
 
     //Room components
     implementation "androidx.room:room-runtime:2.2.5"
